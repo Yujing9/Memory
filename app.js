@@ -1,14 +1,40 @@
-const express = require('express');
+//jshint esversion:6
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+
+
 const app = express();
-const port = 3000;
-const path =require('path');
 
-app.use(express.static('public'));
+app.use(express.static("public"))
+app.set('view engine','ejs')
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,"index.html"));
-})
+app.get("/",function(req,res){
+  res.render("home");
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.get("/login",function(req,res){
+  res.render("login");
+});
+
+app.get("/register",function(req,res){
+  res.render("register");
+});
+
+app.get("/suggestions",function(req,res){
+  res.render("suggestions");
+});
+
+app.get("/albums",function(req,res){
+  res.render("albums");
+});
+
+
+
+app.listen(3000,function(){
+  console.log("3000!");
+});
