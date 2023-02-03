@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-      <form>
+      <form action="/register" method="POST">
         <h1 class="h3 mb-3 fw-normal">Please Sign up</h1>
 
         <div class="form-floating mb-3">
@@ -10,18 +10,18 @@
             class="form-control"
             id="floatingInput"
             placeholder="Username"
+            name="username"
           />
           <label for="floatingInput">Username</label>
         </div>
-        
 
-        
         <div class="form-floating mb-3">
           <input
             type="email"
             class="form-control"
             id="floatingInput"
             placeholder="name@example.com"
+            name="email"
           />
           <label for="floatingInput">Email address</label>
         </div>
@@ -31,6 +31,7 @@
             class="form-control"
             id="floatingPassword"
             placeholder="Password"
+            name="password"
           />
           <label for="floatingPassword">Password</label>
         </div>
@@ -40,7 +41,8 @@
             type="password"
             class="form-control"
             id="floatingPassword"
-            placeholder="Password"
+            placeholder="Confirmed Password"
+            name="ConPassword"
           />
           <label for="floatingPassword">Confirmed Password</label>
         </div>
@@ -58,7 +60,7 @@
         </button>
         <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p> -->
       </form>
-      <p>You have an account? <a href="#!">Log in</a></p>
+      <p>You have an account? <a href="/login">Log in</a></p>
     </main>
   </body>
 </html>
